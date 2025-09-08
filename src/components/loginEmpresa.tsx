@@ -65,7 +65,7 @@ export const LoginEmpresa = () => {
     console.log("Password:", password);
 
     const url =
-      "https://back-and-front-nigthlifemedellin.onrender.com/discotecas/login";
+      "https://loopa-back.onrender.com/discotecas/login";
 
     try {
       const response = await fetch(url, {

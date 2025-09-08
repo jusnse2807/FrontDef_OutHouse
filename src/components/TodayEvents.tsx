@@ -16,7 +16,7 @@ const TodayEvents: React.FC<TodayEventsProps> = ({
 }) => {
   const [events, setEvents] = useState<any[]>([]);
 
-  const url = "https://back-and-front-nigthlifemedellin.onrender.com/eventos";
+  const url = "https://loopa-back.onrender.com/eventos";
 
   useEffect(() => {
     const fetchEvents = async () => {

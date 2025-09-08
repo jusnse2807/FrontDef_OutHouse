@@ -28,7 +28,7 @@ export const SignupEmpresa = () => {
     console.log("longitud:", longitud);
 
     const url =
-      "https://back-and-front-nigthlifemedellin.onrender.com/discotecas";
+      "https://loopa-back.onrender.com/discotecas";
 
     fetch(url, {
       method: "POST",
