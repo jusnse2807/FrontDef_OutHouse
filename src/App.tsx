@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { LoginEmpresa } from './components/loginEmpresa'
 import {MainPage} from './components/MainPage'
 import { AddEvent } from './components/addEvent'
+import { ReservasPage } from './components/reservas'
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path="/editarPerfilUsuario" element={<EditarPerfilUsuario />} />
         <Route path="/mainPage" element={<MainPage/>} />
         <Route path="/addEvent" element={<AddEvent/>} />
+        <Route path="/reservas" element={<ReservasPage/>} />
       </Routes>
     </div>
     </Router>

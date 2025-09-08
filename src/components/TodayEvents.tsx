@@ -78,7 +78,10 @@ const TodayEvents: React.FC<TodayEventsProps> = ({
           <div
             key={event.id}
             className="group bg-gradient-to-br from-stone-100 via-amber-50 to-orange-100 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden border border-amber-200/50 hover:border-amber-300 transform hover:-translate-y-2"
-            onClick={() => onEventClick(event)}
+            onClick={() => {
+              localStorage.setItem("eventId", event.id);
+              onEventClick(event)
+            }}
           >
             <div className="relative overflow-hidden">
               <img

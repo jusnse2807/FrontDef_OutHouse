@@ -65,7 +65,7 @@ export const Login = () => {
     console.log("Password:", password);
 
     const url =
-      "https://back-and-front-nigthlifemedellin.onrender.com/consumidorehttps://loopa-back.onrender.com/consumidores/login";
+      "https://loopa-back.onrender.com/consumidores/login";
 
     try {
       const response = await fetch(url, {
@@ -111,7 +111,7 @@ export const Login = () => {
 
   const handleLoginPopupClose = () => {
     setLoginPopup(false);
-    navigate("/mainPage");
+    navigate("/reservas");
   };
 
   return (
