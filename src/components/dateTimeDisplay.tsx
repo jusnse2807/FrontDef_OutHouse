@@ -1,43 +1,64 @@
-// src/components/DateTimeDisplay.tsx
-import React, { useState, useEffect } from 'react';
+"use client";
 
-const containerStyle = {
-    width: '100%',
-    borderRadius: '8px',
-    boxShadow: '0 4px 15px rgba(0, 255, 0, 0.3)', // Green subtle shadow for depth
-    border: '2px solid #6a0dad', // Purple border for a night-life aesthetic
-};
+// src/components/DateTimeDisplay.tsx
+import type React from "react";
+import { useState, useEffect } from "react";
 
 const DateTimeDisplay: React.FC = () => {
-    const [currentDateTime, setCurrentDateTime] = useState(new Date());
+  const [currentDateTime, setCurrentDateTime] = useState(new Date());
 
-    useEffect(() => {
-        // Update the date and time every second
-        const timer = setInterval(() => {
-            setCurrentDateTime(new Date());
-        }, 1000);
+  useEffect(() => {
+    // Update the date and time every second
+    const timer = setInterval(() => {
+      setCurrentDateTime(new Date());
+    }, 1000);
 
-        // Clean up the timer when the component unmounts
-        return () => clearInterval(timer);
-    }, []);
+    // Clean up the timer when the component unmounts
+    return () => clearInterval(timer);
+  }, []);
 
-    const dateString = currentDateTime.toLocaleDateString();
-    const timeString = currentDateTime.toLocaleTimeString();
+  const dateString = currentDateTime.toLocaleDateString("es-CO", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+  const timeString = currentDateTime.toLocaleTimeString("es-CO");
 
-    return (
-        <div
-            style={containerStyle}
-            className="bg-black p-8 rounded-lg border border-purple-600 flex flex-col items-center justify-center text-white"
-        >
-            <h3 className="text-3xl font-extrabold">Today's Date</h3>
-            <p className="text-5xl mt-2 text-green-500 font-extrabold">{dateString}</p>
-            <h3 className="text-3xl font-extrabold mt-4">Current Time</h3>
-            <p className="text-4xl mt-2 text-green-500 font-extrabold">{timeString}</p>
-            <p className="text-xl mt-6 text-white text-center font-serif">
-                <i>Dile que bailando la conocí…</i> Don Omar
-            </p>
+  return (
+    <div className="bg-gradient-to-br from-stone-700 via-amber-800 to-stone-800 p-8 rounded-2xl shadow-2xl border border-stone-500/30 backdrop-blur-sm">
+      <div className="flex flex-col items-center justify-center text-center space-y-6">
+        <div className="space-y-2">
+          <h3 className="text-2xl font-bold text-amber-200 tracking-wide uppercase">
+            Fecha de Hoy
+          </h3>
+          <div className="h-1 w-20 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full mx-auto"></div>
         </div>
-    );
+
+        <p className="text-4xl font-extrabold text-amber-200 tracking-tight leading-tight">
+          {dateString}
+        </p>
+
+        <div className="space-y-2">
+          <h3 className="text-2xl font-bold text-amber-200 tracking-wide uppercase">
+            Hora Actual
+          </h3>
+          <div className="h-1 w-20 bg-gradient-to-r from-orange-400 to-amber-500 rounded-full mx-auto"></div>
+        </div>
+
+        <p className="text-5xl font-extrabold text-orange-200 tracking-tight font-mono">
+          {timeString}
+        </p>
+
+        <div className="mt-8 p-4 bg-black/20 rounded-xl border border-stone-500/30">
+          <p className="text-lg text-amber-100 font-serif italic leading-relaxed">
+            "La vida es una celebración, encuentra tu evento perfecto en
+            Medellín"
+          </p>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default DateTimeDisplay;
