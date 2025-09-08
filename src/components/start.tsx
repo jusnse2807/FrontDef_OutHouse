@@ -6,7 +6,7 @@ export const Start = () => {
   const navigate = useNavigate();
 
   const navigateUsuario = () => {
-    navigate("/login");
+    navigate("/mainPage");
   };
 
   const navigateEmpresa = () => {

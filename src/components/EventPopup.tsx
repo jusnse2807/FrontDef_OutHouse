@@ -2,6 +2,7 @@
 
 // src/components/EventPopup.tsx
 import type React from "react";
+import { useNavigate } from "react-router-dom";
 
 interface EventDetails {
   flyer: string;
@@ -22,6 +23,13 @@ const EventPopup: React.FC<EventDetails> = ({
   cover,
   hora,
 }) => {
+
+  const navigate = useNavigate();
+
+  const handleReserva = () => {
+    navigate("/login");
+  };
+
   return (
     <div className="fixed inset-0 flex justify-end bg-black/80 backdrop-blur-sm z-50">
       <div className="w-full max-w-lg bg-gradient-to-br from-stone-50 via-amber-50 to-orange-50 text-stone-800 shadow-2xl transform transition-all duration-500 ease-out translate-x-0 border-l-4 border-amber-600">
@@ -101,6 +109,13 @@ const EventPopup: React.FC<EventDetails> = ({
               </div>
             </div>
           </div>
+
+          <button
+            className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-4 px-6 rounded-xl hover:from-green-700 hover:to-emerald-700 transition-all duration-200 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            onClick={handleReserva}
+          >
+            Reservar
+          </button>
 
           <button
             className="w-full bg-gradient-to-r from-amber-600 to-orange-600 text-white py-4 px-6 rounded-xl hover:from-amber-700 hover:to-orange-700 transition-all duration-200 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
